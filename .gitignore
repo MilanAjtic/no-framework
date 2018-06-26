@@ -1,1 +1,7 @@
 /vendor/
+
+# IDE Files
+#-------------------------
+/nbproject/
+.idea/*
+.vscode/*
