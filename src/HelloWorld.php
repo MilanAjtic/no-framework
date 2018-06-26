@@ -5,8 +5,16 @@ namespace ExampleApp;
 
 class HelloWorld
 {
-    public function announce(): void
+    private $foo;
+
+    public function __construct(string $foo)
     {
-        echo "Hello, autoloaded World!";
+        $this->foo = $foo;
+    }
+    
+    public function __invoke(): void
+    {
+        echo "Hello, {$this->foo} world!";
+        exit;
     }
 }
