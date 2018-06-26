@@ -16,12 +16,13 @@ $containerBuilder->addDefinitions([
     HelloWorld::class => create(HelloWorld::class)
 ]);
 
+
+$container = $containerBuilder->build();
+
 $middlewareQueue = [];
 
 $requestHandler = new Relay($middlewareQueue);
 $requestHandler->handle(ServerRequestFactory::fromGlobals());
-
-$container = $containerBuilder->build();
 
 $helloWorld = $container->get(HelloWorld::class);
 
