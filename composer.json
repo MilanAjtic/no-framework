@@ -1,7 +1,9 @@
 {
     "name": "ajta/no-framework",
     "description": "An example of modern PHP application made without a framework",
-    "require": {},
+    "require": {
+        "php-di/php-di": "^6.0"
+    },
     "autoload": {
         "psr-4": {
             "ExampleApp\\": "src/"
