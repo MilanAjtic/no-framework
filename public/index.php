@@ -1,18 +1,22 @@
 <?php 
 declare (strict_types=1);
 
+use DI\ContainerBuilder;
+use ExampleApp\HelloWorld;
+use function DI\create;
+
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-$containerBuilder = new \DI\ContainerBuilder();
+$containerBuilder = new ContainerBuilder();
 $containerBuilder->useAutowiring(false);
 $containerBuilder->useAnnotations(false);
 $containerBuilder->addDefinitions([
-    \ExampleApp\HelloWorld::class => \DI\create(\ExampleApp\HelloWorld::class)
+    HelloWorld::class => create(HelloWorld::class)
 ]);
 
 $container = $containerBuilder->build();
 
-$helloWorld = $container->get(\ExampleApp\HelloWorld::class);
+$helloWorld = $container->get(HelloWorld::class);
 
 // $helloWorld = new \ExampleApp\HelloWorld();
 
